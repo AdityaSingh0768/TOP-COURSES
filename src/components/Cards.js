@@ -4,25 +4,27 @@ import { use } from 'react';
  const Cards = (props) => {
      let courses=props.courses
      let category=props.category
-     const [likedcourses ,setlikedcourses]=useState([]) 
-     const[likedcoursesdata,setlikedcorsesdata]=useState([])
+     const [likedcourses ,setlikedcourses]=useState([]);
+     const[likedcoursesdata,setlikedcorsesdata]=useState([]);
 
       function getCourses(courses){
           if(category==='All'){
              let allcourses=[];
-             Object.values(courses).forEach(array=>{
+             Object.values(courses)//This converts object → array of arrays.
+             .forEach(array=>{
                 array.forEach( (coursedata)=>{
-                 allcourses.push(coursedata);
+                 allcourses.push(coursedata); // we going on each array and each course is getting into allcourses
                 })
              })
              return allcourses
             }
             if(category==='Liked'){
-              return likedcoursesdata
+              return likedcoursesdata// kewal liked courses ayenge isme 
             }
             else {
                 // sirf specific category ka data (array)pass krna h 
-                return courses[category];
+                
+                return courses[category];// array hi return hogs 
             }
       }
 

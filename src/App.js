@@ -13,7 +13,7 @@ import { Spinner } from "./components/Spinner.js";
 const App = () => {
   const [courses, setCourses] = useState([]);// null will give error
   const[loading,setloading]=useState(true);
-  const[category,setcategory]=useState(filterData[0].title)
+  const[category,setcategory]=useState(filterData[0].title)//. initial me all cateogry h 
 
   async function fetchdata() {
     setloading(true);

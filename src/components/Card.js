@@ -10,12 +10,9 @@ export const Card = (props) => {
   function clickhandler() {
     if (likedcourses.includes(course.id)) {
       // if true mltb like  hua h phele se hi
-      setlikedcourses(
-        (
-          prev // remove ks logic thoda samjho
-        ) => prev.filter((cid) => cid !== course.id)
-      )
-     setlikedcorsesdata((prev)=> prev.filter((courseId) => courseId !== course.id));
+    setlikedcourses((prev) => prev.filter((cid) => cid !== course.id))
+   setlikedcorsesdata((prev)=> prev.filter((courseObj) => courseObj.id !== course.id));// here we are removing the course which are being unliked
+   // here we need to write .id  becuase we have whole objetc 
       toast.warning("like removed ");
     } else {
       // phele se like nhi h
@@ -27,7 +24,7 @@ export const Card = (props) => {
         setlikedcourses((prev) => [...prev, course.id]);
       }
       toast.success("Liked Successfully");
-       setlikedcorsesdata((prev) => [...prev, course])
+       setlikedcorsesdata((prev) => [...prev, course])// here i am storing the liked courses here 
     }
   }
   return (
